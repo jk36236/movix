@@ -21,20 +21,28 @@ function App() {
   const {url}=useSelector((state)=>state.home)//because we are getting not homeslice state but store state
   useEffect(()=>{
     //invokes this method which calls the api
-    apiTesting();
+    fetchApiConfig();
   },[]);
 
-  const apiTesting=()=>{
-    fetchDataFromApi("/movie/popular")
+  const fetchApiConfig=()=>{
+    fetchDataFromApi("/configuration")
     .then((res)=>{
       console.log(res);
-     dispatch(getApiConfiguration(res))
+
+      //now we wil not store whole result in store, we just need 3 types of image paths:-backdrop(banner),poster(homepage),profile(when we click on any poster then profile photo will be shown)
+      //we will make object to get these and will store in store
+      const url={
+        backdrop:res.images.secure_base_url + "original",
+        poster:res.images.secure_base_url + "original",
+        profile:res.images.secure_base_url + "original",
+      }
+     dispatch(getApiConfiguration(url))
     });
   };
 
   return (
     <BrowserRouter>
-    <Header />
+    {/* <Header /> */}
     <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/:mediaType/:id" element={<Details />}/>
@@ -42,7 +50,7 @@ function App() {
       <Route path="/explore/:mediaType" element={<Explore />}/>
       <Route path="*" element={<PageNotFound />}/>
     </Routes>
-    <Footer />
+    {/* <Footer /> */}
     </BrowserRouter>
   )
 }
