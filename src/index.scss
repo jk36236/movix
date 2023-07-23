@@ -10,6 +10,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
+  // color variables which we use throughout the application
   --black: #04152d;
   --black2: #041226;
   --black3: #020c1b;
@@ -20,6 +21,7 @@
   --gradient: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
 }
 
+//this css is applied throughout the application
 * {
   margin: 0;
   padding: 0;
@@ -30,10 +32,13 @@ body {
   background-color: var(--black);
 }
 
+//the scrollbar which is displayed in browsser, we have hidden it with css but scrolling functionality ab bhi chalti rahegi
 ::-webkit-scrollbar {
   display: none;
 }
 
+
+//we will use this for skeleton loading
 .skeleton {
   position: relative;
   overflow: hidden;

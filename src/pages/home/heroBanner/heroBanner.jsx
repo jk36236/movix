@@ -16,7 +16,7 @@ const HeroBanner = () => {
   const {url}=useSelector((state)=>state.home);
 
   //api call
-  const {data,loading} =useFetch('movie/upcoming');//endpoint,we are fetching data from upcoimg movies and will show banner fom that.
+  const {data,loading} =useFetch('/movie/upcoming');//endpoint,we are fetching data from upcoimg movies and will show banner fom that.
 
   //for background image
   useEffect(()=>{
