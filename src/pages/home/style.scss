@@ -1,0 +1,17 @@
+.carouselSection{
+   position: relative;
+   margin-bottom: 70px;
+   //contentwrapper ke andar jo pehle div jiski class contentwrapper hai use target kar rahe hai
+   & >.contentWrapper{
+      display: flex;
+      align-items: center;
+      justify-content:space-between;
+      margin-bottom: 20px;
+   } 
+
+   .carouselTitle{
+    font-size: 20px;
+    color: white;
+    font-weight: normal;
+   }
+}
