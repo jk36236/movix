@@ -10,6 +10,7 @@ import dayjs from "dayjs";//dayjs ki help se hum date ko 28 june,2022 is format 
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/no-poster.png";
+import CircleRating from "../circleRating/CircleRating";
 
 import "./style.scss";
 
@@ -76,6 +77,8 @@ const skItem=()=>{
 {/* poster block */}
 <div className="posterBlock">
 <Img src={posterUrl}/>
+{/* voteaverage 1 decimal no hai therefore we want only 1 digita after decimal */}
+<CircleRating rating={item.vote_average.toFixed(1)}/>
 </div>
 {/* text */}
 <div className="textBlock">
