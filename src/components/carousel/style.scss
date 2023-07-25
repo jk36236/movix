@@ -138,7 +138,7 @@
                     }
                 }
                 .genres {
-                    display: none;
+                    display: none;//mobile me genres ko hide kar rakha hai
                     position: relative;
                     @include md {
                         display: flex;

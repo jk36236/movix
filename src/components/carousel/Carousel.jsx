@@ -11,6 +11,8 @@ import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from "../circleRating/CircleRating";
+import Genres from "../genres/Genres";
+
 
 import "./style.scss";
 
@@ -79,6 +81,8 @@ const skItem=()=>{
 <Img src={posterUrl}/>
 {/* voteaverage 1 decimal no hai therefore we want only 1 digita after decimal */}
 <CircleRating rating={item.vote_average.toFixed(1)}/>
+{/* iske andar ids bhejni hai, and bohot sare genres show honge par hume sirf 2 he cahiye for a particular movie/tv show */}
+<Genres data={item.genre_ids.slice(0,2)}/>
 </div>
 {/* text */}
 <div className="textBlock">
