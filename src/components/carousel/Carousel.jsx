@@ -17,17 +17,29 @@ import Genres from "../genres/Genres";
 import "./style.scss";
 
 const Carousel = ({data,loading}) => {
-  const carouselContainer=useRef();//ab hum carouselContainer variable jis bh div main pass karenge us div ka reference hume mil jayega
+  const carouselContainer=useRef();//ab hum carouselContainer variable jis bh div main pass karenge us div ka reference hume mil jayega,we have passed it in carouselitems
 
   //we will take url from store
   const {url}=useSelector((state)=>state.home);
 
-  const navigate=useNavigate();//instance of usenavigate
+  const navigate=useNavigate();//instance of usenavigate,use in carousel item
 
   //we will get direction -left,right and iske based pe hum apne containe ko left ya right scroll karvaenge
   const navigation=(dir)=>{
+//carousel container ki main div ko pakdenge
+const container=carouselContainer.current;//iske ander carouselitem wali div aa chuki hai
 
-  }
+const scrollAmount=dir ==="left" ? 
+container.scrollLeft - (container.offsetWidth + 20) : container.scrollLeft + (container.offsetWidth + 20);
+//20 is space between carousel items, if dir==left toh hume vapis jana hai ,therefore minus else plus
+
+container.scrollTo(
+  {
+    left:scrollAmount,
+    behavior:"smooth",
+  });
+
+  };
 
 // method for skeleton item
 const skItem=()=>{
@@ -64,7 +76,7 @@ const skItem=()=>{
       {/* /rendering carousel item based on loading state */}
       {!loading ? (
         // if not loading state we have to show carousel items
-        <div className="carouselItems">
+        <div className="carouselItems" ref={carouselContainer}>
 {/* {data.map(()=>{*
 
 *})}
@@ -74,7 +86,7 @@ const skItem=()=>{
             // else we will return fallback image
             const posterUrl=item.poster_path ? url.poster + item.poster_path :PosterFallback;
             return(
-<div key={item.id} className="carouselItem">
+<div key={item.id} className="carouselItem" onClick={()=>navigate(`/${item.media_type}/${item.id}`)}>
 
 {/* poster block */}
 <div className="posterBlock">
