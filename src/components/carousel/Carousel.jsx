@@ -16,7 +16,7 @@ import Genres from "../genres/Genres";
 
 import "./style.scss";
 
-const Carousel = ({data,loading}) => {
+const Carousel = ({data,loading,endpoint}) => {
   const carouselContainer=useRef();//ab hum carouselContainer variable jis bh div main pass karenge us div ka reference hume mil jayega,we have passed it in carouselitems
 
   //we will take url from store
@@ -86,7 +86,7 @@ const skItem=()=>{
             // else we will return fallback image
             const posterUrl=item.poster_path ? url.poster + item.poster_path :PosterFallback;
             return(
-<div key={item.id} className="carouselItem" onClick={()=>navigate(`/${item.media_type}/${item.id}`)}>
+<div key={item.id} className="carouselItem" onClick={()=>navigate(`/${item.media_type || endpoint}/${item.id}`)}>
 
 {/* poster block */}
 <div className="posterBlock">
