@@ -58,8 +58,8 @@ const data=await Promise.all(promises);
 // console.log(data);dono api's ka response ek he array me bheja hai as an object
 
 //destructuring genres from data
-data.map(({genres})=>{
-return genres.map((item)=>(allGenres[item.id]=item))//allgenres abject me hum apni values ko save karenge,id-key and value ke andar item(response) aayega
+data?.map(({genres})=>{
+return genres?.map((item)=>(allGenres[item.id]=item))//allgenres abject me hum apni values ko save karenge,id-key and value ke andar item(response) aayega
 })
 // console.log(allGenres)
 
