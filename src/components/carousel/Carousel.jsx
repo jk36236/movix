@@ -16,7 +16,7 @@ import Genres from "../genres/Genres";
 
 import "./style.scss";
 
-const Carousel = ({data,loading,endpoint}) => {
+const Carousel = ({data,loading,endpoint,title}) => {
   const carouselContainer=useRef();//ab hum carouselContainer variable jis bh div main pass karenge us div ka reference hume mil jayega,we have passed it in carouselitems
 
   //we will take url from store
@@ -59,6 +59,8 @@ const skItem=()=>{
 
   return (
     <div className="carousel">
+{/* if title exist then show title, this is added for details page section */}
+      {title && <div className="carouselTitle">{title}</div>}
       <ContentWrapper>
         {/* arrows */}
         <BsFillArrowLeftCircleFill
