@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./style.scss";
 
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
-import { PlayIcon } from "../PlayBtn";
+import { PlayIcon } from "../Playbtn";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
 import Img from "../../../components/lazyLoadImage/Img";
 
@@ -27,6 +27,7 @@ const VideosSection = ({ data, loading }) => {
             <ContentWrapper>
                 <div className="sectionHeading">Official Videos</div>
                 {!loading ? (
+
                     <div className="videos">
                         {data?.results?.map((video)=>(
                           <div key={video.id} 
@@ -38,7 +39,7 @@ const VideosSection = ({ data, loading }) => {
                           >
                          <div className="videoThumbnail">
                           {/* src-static official url to access poster of youtube video ,iske andar hu video ki id pass krte hain and iska size pass kr diya mqdefault */}
-                          <Img src={`https://img/youtube.com/vi/${video.key}/mqdefault.jpg`}/>
+                <Img src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`} />
                           <PlayIcon />
                          </div>
 
@@ -48,6 +49,7 @@ const VideosSection = ({ data, loading }) => {
                           </div>
                         ))}
                     </div>
+
                 ) : (
                     <div className="videoSkeleton">
                         {loadingSkeleton()}

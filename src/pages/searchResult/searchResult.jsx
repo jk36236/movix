@@ -8,8 +8,8 @@ import { fetchDataFromApi } from "../../utils/api"
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper"
 import MovieCard from "../../components/movieCard/MovieCard"
 import Spinner from "../../components/spinner/Spinner"
-import noResults from "../../assets/no-result.png"
-import Spinner from "../../components/spinner/Spinner"
+// import noResults from "../../assets/no-results.png"
+
 
 
 const searchResult = () => {
@@ -65,12 +65,14 @@ const searchResult = () => {
 
   return (
     <div className="searchResultsPage">
-      {loading && <Spinner initial={true}/>}
+      {loading && <Spinner initial={true} />}
 
 {/* //loading false then we have to show data */}
       {!loading && (
 <ContentWrapper>
-  {data?.results?.length>0 && (
+
+{/* if length of data>0 show data else show no result found */}
+   {data?.results?.length>0 ? (
 //data
 <>
 <div className="pageTitle">
@@ -94,14 +96,15 @@ const searchResult = () => {
 </InfiniteScroll>
 </>
 
-  ):(
-    
+):(
+    // no results found
     <span className="resultNotFound">
-      Sorry, Results not found!!
+       Sorry, Results not found!!
+      
     </span>
-  )}
+)}
 </ContentWrapper>
-      )}
+)}
     </div>
   )
 }

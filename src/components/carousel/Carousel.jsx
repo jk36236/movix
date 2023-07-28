@@ -59,9 +59,9 @@ const skItem=()=>{
 
   return (
     <div className="carousel">
-{/* if title exist then show title, this is added for details page section */}
-      {title && <div className="carouselTitle">{title}</div>}
       <ContentWrapper>
+        {/* if title exist then show title, this is added for details page section */}
+      {title && <div className="carouselTitle">{title}</div>}
         {/* arrows */}
         <BsFillArrowLeftCircleFill
         className="carouselLeftNav arrow"

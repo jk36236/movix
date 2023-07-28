@@ -11,8 +11,9 @@ import Genres from "../../../components/genres/Genres";
 import CircleRating from "../../../components/circleRating/CircleRating";
 import Img from "../../../components/lazyLoadImage/Img.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
-import { PlayIcon } from "../PlayBtn";
+import { PlayIcon } from "../Playbtn";
 import VideoPopup from "../../../components/videoPopUp/VideoPopUp";
+
 
 
 
@@ -55,7 +56,7 @@ const DetailsBanner = ({ video, crew }) => {
                 {!!data && (
                   <React.Fragment>
                   <div className="backdrop-img">
-                    <Img src={url.backdrop +data.backdrop_path}/>
+                    <Img src={url.backdrop + data.backdrop_path}/>
                   </div>
 
                   <div className="opacity-layer"></div>
@@ -89,8 +90,8 @@ const DetailsBanner = ({ video, crew }) => {
                         <div className="row">
                           <CircleRating  rating={data.vote_average.toFixed(1)}/>
 
-                         <div className="platbtn" onClick={()=>{ 
-                          setShow(true);
+                         <div className="playbtn" onClick={()=>{ 
+                          setShow(true)
                           setVideoId(video.key)
                          }}>
                           <PlayIcon />

@@ -3,7 +3,7 @@ import {fetchDataFromApi} from "./utils/api";
 
 import{BrowserRouter,Routes,Route} from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
-import { getApiConfiguration,getGenres } from './store/homeSlice'
+import { getApiConfiguration, getGenres } from './store/homeSlice'
 
 //importing pages and components
 
@@ -49,7 +49,7 @@ let endPoints=["tv","movie"]
 let allGenres={}
 
 endPoints.forEach((url)=>{
-  promises.push(fetchDataFromApi(`genre/${url}/list`))//is url me enpoint tv,movie aa jayenge
+  promises.push(fetchDataFromApi(`/genre/${url}/list`))//is url me enpoint tv,movie aa jayenge
   //therefore we have pushed  api calls in promises array one in which endpoint is tv and in other movie
 })
 
