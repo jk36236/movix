@@ -12,7 +12,7 @@ import Spinner from "../../components/spinner/Spinner"
 
 
 
-const searchResult = () => {
+const SearchResult = () => {
 
   // states
   const[data,setData]=useState(null);
@@ -109,4 +109,4 @@ const searchResult = () => {
   )
 }
 
-export default searchResult
+export default SearchResult
